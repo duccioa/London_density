@@ -39,13 +39,5 @@ SELECT t1.block_id,
 	FROM london_index.block_cluster_labels AS t1 
 	INNER JOIN support.block350h AS t2 
 	ON (t1.block_id=t2.block_id); 	
--- Add PARK column
-CREATE TABLE support.parks (
-	block_id text;
-);
-ALTER TABLE london_index.block_cluster_labels 
-	ADD COLUMN park boolean default False;
-UPDATE london_index.block_cluster_labels SET park = True 
-	WHERE block_id IN (
-		SELECT * FROM support.parks
-	);
+
+

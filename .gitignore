@@ -1,0 +1,17 @@
+
+Icon?
+*.Rproj
+.Rproj.user
+*.RData
+*.RDataTmp
+.RData
+.idea
+.git
+.Rhistory
+.RDataTmp1
+
+02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/CA75879D
+
+02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/E01D50FA
+
+*.xml

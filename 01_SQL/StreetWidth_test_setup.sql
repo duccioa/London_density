@@ -1,4 +1,5 @@
-﻿-- Create schema
+﻿---- Setup a temporary table to test the StreetWidth code ----
+-- Create schema
 CREATE SCHEMA london_streetwidth 
 	AUTHORIZATION postgres;
 -- Road table
