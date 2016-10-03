@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#### SPLIT LINES ####\n# spatial_line:: a spatial line object\n# split_length:: the length of the segments to split the lines into\n# The function takes each line of the spatial line object and splits each line into segment of a given length\nrequire('sp')\nrequire('stplanr')\nsource('/Users/duccioa/CLOUD/01_Cloud/01_Work/02_DataScience/02_Functions/R/FUN_SpatialLine2df.R')\nSplitLines = function(spatial_line, split_length = 20){\nlinedf = line2df(spatial_line)\nsplit_l = split_length # metres\nplot(spatial_line)\nfor(i in 1:nrow(linedf)){\n  line_id = i\n\n  v_line = linedf[linedf$object == line_id,]\n  v = c(v_line$tx-v_line$fx,\n        v_line$ty-v_line$fy)\n  u = c(v[1]/sqrt(v[1]^2 + v[2]^2), v[2]/sqrt(v[1]^2 + v[2]^2))\n  seg_l = sqrt((v_line$fx - v_line$tx)^2 + (v_line$fy - v_line$ty)^2)\n  if(seg_l <= split_l){next()}\n  num_seg = floor(seg_l/split_l)\n  seg_left = seg_l - (num_seg*split_l)\n  df = data.frame(line_id = integer(),\n                  subline_id = character(),\n                  fx = numeric(),\n                  fy = numeric(),\n                  tx = numeric(),\n                  ty = numeric(), stringsAsFactors = FALSE)\n\n\n\n  for(i in 0:(num_seg-1)){\n    df[nrow(df)+1, ] = c(v_line$object,\n                         paste0(line_id, '_', formatC(i, width = 4, flag='0')),\n                         v_line$fx +u[1]*split_l*i,\n                         v_line$fy +u[2]*split_l*i,\n                         v_line$fx +u[1]*split_l*(i+1),\n                         v_line$fy +u[2]*split_l*(i+1)\n    )\n  }\n  df[nrow(df)+1, ] = c(v_line$object,\n                       paste0(line_id, '_', formatC(num_seg, width = 4, flag='0')),\n                       v_line$fx +u[1]*split_l*num_seg,\n                       v_line$fy +u[2]*split_l*num_seg,\n                       v_line$tx,\n                       v_line$ty\n  )\n  coords = cbind(as.numeric(df$fx), as.numeric(df$fy))\n  coords = rbind(coords, as.numeric(df$tx[nrow(df)]), as.numeric(df$ty)[nrow(df)])\n  sp_points = SpatialPoints(coords)\n  plot(sp_points, col = 'red', add=T)\n}\n}",
+    "created" : 1474987238467.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1482195369",
+    "id" : "CA75879D",
+    "lastKnownWriteTime" : 1474987315,
+    "last_content_update" : 1474987315002,
+    "path" : "~/CLOUD/01_Cloud/01_Work/02_DataScience/02_Functions/R/FUN_SplitLines.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

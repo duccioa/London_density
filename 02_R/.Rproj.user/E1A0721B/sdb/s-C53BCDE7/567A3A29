@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Make column names safe for SQL databases\ndbSafeNames = function(names) {\n  names = gsub('[^a-z0-9]+','_',tolower(names))\n  names = make.names(names, unique=TRUE, allow_=TRUE)\n  names = gsub('.','_',names, fixed=TRUE)\n  names\n}",
+    "created" : 1474797001670.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1288844994",
+    "id" : "567A3A29",
+    "lastKnownWriteTime" : 1474797062,
+    "last_content_update" : 1474797062459,
+    "path" : "~/CLOUD/01_Cloud/01_Work/02_DataScience/02_Functions/R/FUN_dbSafeNames.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

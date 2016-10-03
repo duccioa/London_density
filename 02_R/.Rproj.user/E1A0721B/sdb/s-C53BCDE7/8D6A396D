@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "## Extracts start and end point coordinates of each segment of a Spatial Line\n# spatial_line:: an object class SpatialLinesDataFrame of the package sp\nSpatialLine2df = function(spatial_line) {\n  df = data.frame(object = character(),\n                  fx = numeric(),\n                  fy = numeric(),\n                  tx = numeric(),\n                  ty = numeric(), stringsAsFactors = FALSE)\n  for (i in 1:length(spatial_line)) {\n    coords = spatial_line@lines[[i]]@Lines[[1]]@coords\n    num_rows = 1:(nrow(coords) - 1)\n    id = paste0(formatC(i, width = 9, flag = '0'), '_', formatC(num_rows, width = 3, flag = '0'))\n    for (j in num_rows) {\n      df[nrow(df)+1,] = c(id[j], coords[j, 1], coords[j, 2], coords[j + 1, 1], coords[j +1, 2])\n    }\n  }\n  row.names(df) = NULL\n  df$fx = as.numeric(df$fx)\n  df$fy = as.numeric(df$fy)\n  df$tx = as.numeric(df$tx)\n  df$ty = as.numeric(df$ty)\n  return(df)\n}\n\n",
+    "created" : 1474987245604.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3230301593",
+    "id" : "8D6A396D",
+    "lastKnownWriteTime" : 1474987267,
+    "last_content_update" : 1474987267052,
+    "path" : "~/CLOUD/01_Cloud/01_Work/02_DataScience/02_Functions/R/FUN_SpatialLine2df.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library('RPostgreSQL')\nlibrary('rgdal')\nlibrary('rpostgis')\nlibrary('stplanr')\nsource('/Users/duccioa/CLOUD/01_Cloud/01_Work/02_DataScience/02_Functions/R/FUN_dbSafeNames.R')\nsource('/Users/duccioa/CLOUD/01_Cloud/01_Work/02_DataScience/02_Functions/R/FUN_SplitLines.R')\npg = dbDriver(\"PostgreSQL\")\n\n# Read table from database\ncon = dbConnect(pg, user=\"postgres\", password=\"postgres\", host=\"localhost\", port=5432, dbname=\"msc\")\ndtab = dbGetQuery(con, \"select geom from london_streetwidth.roads\")\nroads = dbReadTable(con, \"london_streetwidth.roads\")\ndbDisconnect(con)\n# RpostGIS\ncon = dbConnect(pg, user=\"postgres\", password=\"postgres\", host=\"localhost\", port=5432, dbname=\"msc\")\nroad_geom = pgGetGeom(con, name = c('london_streetwidth', 'roads'), geom = 'geom', gid = 'edge_id')\nbuilding_geom = pgGetGeom(con, name = c('london_streetwidth', 'buildings'), geom = 'wkb_geometry', gid = 'ogc_fid')\ndbDisconnect(con)\nplot(road_geom)\nplot(building_geom)\n\n##\nSplitLines(road_geom)\n\n## Check real geometry against lines2df\nplot(road_geom)\nfor( i in 1:nrow(linedf)){\nline_coords = cbind(as.numeric(linedf$fx[i]), as.numeric(linedf$fy[i]))\nline_coords = rbind(line_coords, cbind(as.numeric(linedf$tx[i]), as.numeric(linedf$ty[i])))\nline_test = Line(line_coords)\nLs1 = Lines(list(line_test), ID = \"a\")\nSL1 = SpatialLines(list(Ls1))\n#plot(road_geom)\nplot(SL1, col='red', lwd = 2,add=T)\n}\n",
+    "created" : 1474795211480.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4200658106",
+    "id" : "EC45A5E",
+    "lastKnownWriteTime" : 1474988154,
+    "last_content_update" : 1474988154688,
+    "path" : "~/CLOUD/01_Cloud/01_Work/04_Projects/0026_LondonDensity/02_Code/02_R/StreetWidth.R",
+    "project_path" : "StreetWidth.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
