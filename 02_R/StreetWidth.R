@@ -17,7 +17,7 @@ road_geom = pgGetGeom(con, name = c('london_streetwidth', 'roads'), geom = 'geom
 building_geom = pgGetGeom(con, name = c('london_streetwidth', 'buildings'), geom = 'wkb_geometry', gid = 'ogc_fid')
 dbDisconnect(con)
 plot(road_geom)
-plot(building_geom)
+plot(building_geom, add = T)
 
 ##
 SplitLines(road_geom)

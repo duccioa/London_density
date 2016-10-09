@@ -1,17 +1,71 @@
-
 Icon?
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+/*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
 *.Rproj
-.Rproj.user
+02_R/.Rproj.user
 *.RData
 *.RDataTmp
-.RData
+02_R/.RData/
 .idea
-.git
-.Rhistory
-.RDataTmp1
+02_R/.git/
+02_R/.Rhistory/
+02_R/.RDataTmp1/
 
 02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/CA75879D
 
 02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/E01D50FA
 
 *.xml
+
+02_R/.RData
+
+02_R/.Rhistory
+
+02_R/.Rhistory
+
+*.pper
+
+02_R/.Rproj.user/E1A0721B/sdb/prop/INDEX
+
+02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/3E4CDBB4
+
+02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/567A3A29
+
+02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/8D6A396D
+
+02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/EC45A5E
+
+02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/lock_file

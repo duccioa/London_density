@@ -264,7 +264,7 @@ hist(plots$gsi[plots$caz== TRUE & plots$gsi>quantile(plots$gsi, 0.01)],
      ylim = hist_ylim,
      col = add.alpha(hist_col, 0.7),
      border = hist_border,
-     main = 'London parcels within CAZ \nGSI Frequency Distribution',
+     main = 'London plots within CAZ \nGSI Frequency Distribution',
      xlab = 'GSI',
      ylab = 'Occurrence'
 ) # CAZ
@@ -285,7 +285,7 @@ hist(plots$gsi[plots$caz== FALSE & plots$gsi>quantile(plots$gsi, 0.01)],
      ylim = hist_ylim,
      col = add.alpha(hist_col, 0.7),
      border = hist_border,
-     main = 'London parcels outside CAZ \nGSI Frequency Distribution',
+     main = 'London plots outside CAZ \nGSI Frequency Distribution',
      xlab = 'GSI',
      ylab = 'Occurrence'
 ) # no-CAZ
@@ -319,7 +319,7 @@ hist(plots$fsi[plots$caz== TRUE],
      xlim = hist_xlim1,
      col = hist_col,
      border = hist_border,
-     main = 'London parcles within CAZ \nFAR Frequency Distribution',
+     main = 'London plots within CAZ \nFAR Frequency Distribution',
      xlab = 'FAR',
      ylab = 'Occurence'
 ) # CAZ
@@ -342,7 +342,7 @@ hist(plots$fsi[plots$caz== FALSE],
      xlim = hist_xlim2,
      col = hist_col,
      border = hist_border,
-     main = 'London parcles outside CAZ \nFAR Frequency Distribution',
+     main = 'London plots outside CAZ \nFAR Frequency Distribution',
      xlab = 'FAR',
      ylab = 'Occurence'
 ) # NO-CAZ
