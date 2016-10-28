@@ -1,6 +1,7 @@
 library(sp)
-Sl = SpatialLines(list(Lines(list(Line(cbind(c(1,2,3),c(3,2,2)))), ID="a")))
-plot(Sl)
+        Sl = SpatialLines(list(Lines(list(Line(cbind(c(1,2,3, 4),c(3,2,2,4)))), ID="a")))
+        plot(Sl)
+        SplitLines(Sl, 0.1, F, T)
 coordinates(Sl)
 
 
