@@ -1,27 +1,26 @@
-library('rgdal')
-library('rpostgis')
-library('sptools')
+library('RPostgreSQL')
+library('data.table')
 pg = dbDriver("PostgreSQL")
-
-# RpostGIS
-con = dbConnect(pg, user="postgres", password="postgres", host="localhost", port=5432, dbname="msc")
-road_geom = pgGetGeom(con, name = c('london_streetwidth', 'caz_roads'), geom = 'geom', gid = 'edge_id')
-building_geom = pgGetGeom(con, name = c('london_streetwidth', 'buildings'), geom = 'wkb_geometry', gid = 'ogc_fid')
+options(scipen=500)
+pw = {'postgres'}
+pg = dbDriver("PostgreSQL")
+con = dbConnect(pg, user="postgres", password=pw, host="localhost", port=5432, dbname="msc")
+rm(pw)
+res = data.table(dbGetQuery(con, 'SELECT * FROM london_streetwidth.test_lines'))
 dbDisconnect(con)
-plot(road_geom)
-plot(building_geom, add = T)
+dbUnloadDriver(pg)
 
-##
-road_geom_split = SplitLines(road_geom, 10, return.dataframe =  F, plot.results =  F)
-road_geom_split_df = SplitLines(road_geom, 10, return.dataframe =  T, plot.results =  F)
-proj4string(road_geom_split) = CRS("+init=epsg:27700")
-SLDF = SpatialLinesDataFrame(road_geom_split,
-                             data.frame(id=road_geom_split_df$id, row.names = road_geom_split_df$id))
-SLDF@data$width = sample(1:10, length(road_geom_split_df$id), replace=T)
-writeOGR(SLDF,
-         dsn = '/Users/duccioa/CLOUD/01_Cloud/01_Work/04_Projects/0026_LondonDensity/05_Data/StreetWidth',
-         layer = 'caz_road_geom_split',
-         overwrite_layer = T,
-         driver="ESRI Shapefile")
+# Analyse resutls
+summary(as.factor(df$width))
+hist(df[width < 1000, width],
+     xlab = 'metres',
+     main = 'Frequency of street width  \nLondon CAZ',
+     xlim = c(0, 30),
+     breaks = 20)
+summary(df$c_ratio)
+hist(df[c_ratio < quantile(c_ratio, .99), c_ratio],
+     breaks = 50,
+     xlab = 'H/W ratio',
+     main = 'Canyon ratio by segment of road \nLondon CAZ')
+abline(v = median(df$c_ratio), col = 'red')
 
-## Plots

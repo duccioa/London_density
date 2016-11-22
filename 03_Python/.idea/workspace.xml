@@ -34,8 +34,8 @@
       <file leaf-file-name="SW_DataCleaning_results.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SW_DataCleaning_results.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="150">
+              <caret line="10" column="84" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="84" />
               <folding>
                 <element signature="e#83#102#0" expanded="true" />
               </folding>
@@ -362,10 +362,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Python/3.5/lib/python/site-packages/pandas/core/indexing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="1290" column="0" selection-start-line="1290" selection-start-column="0" selection-end-line="1290" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SW_DataCleaning_results.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="150">
+          <caret line="10" column="84" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="84" />
           <folding>
             <element signature="e#83#102#0" expanded="true" />
           </folding>

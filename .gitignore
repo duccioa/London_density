@@ -58,6 +58,7 @@ vignettes/*.pdf
 
 *.pper
 
+
 02_R/.Rproj.user/E1A0721B/sdb/prop/INDEX
 
 02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/3E4CDBB4
@@ -69,4 +70,7 @@ vignettes/*.pdf
 02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/EC45A5E
 
 02_R/.Rproj.user/E1A0721B/sdb/s-C53BCDE7/lock_file
+
+01_SQL/00_Archive
 .Rproj.user
+
